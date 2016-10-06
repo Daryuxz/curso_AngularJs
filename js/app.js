@@ -22,7 +22,7 @@ angular.module('todoApp', [])
       var oldTodos = todoList.todos;
       todoList.todos = [];
       angular.forEach(oldTodos, function(todo) {
-        if (!todo.done) todoList.todos.push(todo);      });
+        if (!todo.done) todoList.todos.push(todo);      
+      });
     };
   });
-

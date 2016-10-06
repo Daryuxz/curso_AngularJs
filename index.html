@@ -1,14 +1,31 @@
 <!doctype html>
-<html ng-app="todoApp">
+<html ng-app="stockApp">
   <head>
-    <script src="angular.min.js"></script>
-    <script src="app.js"></script>
-    <link rel="stylesheet" href="app.css">
+    <meta charset="UTF-8">
+    <script src="vendor/angular/angular.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/stockController.js"></script>
+    <link rel="stylesheet" href="styles/app.css">
   </head>
   <body>
-    <h2>Titulo de la Aplicacion</h2>
-    <div ng-controller="TodoListController as todoList">
-      <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+    <h2>Listado de Productos</h2>
+    <div ng-controller="StockController as stockCtrl">
+      <table>
+        <tbody>
+          <tr>
+            <th>Codigo</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Notas</th>
+          </tr>
+        </tbody>
+      <tr ng-repeat="product in products">
+        <td>{{product.code}}</td>
+        <td>{{product.description}}</td>
+        <td>{{product.price}}</td>
+        <td>{{product.notes}}</td>
+      </tr>      
+      <!--<span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
       [ <a href="" ng-click="todoList.archive()">archive</a> ]
       <ul class="unstyled">
         <li ng-repeat="todo in todoList.todos">
@@ -22,7 +39,8 @@
         <input type="text" ng-model="todoList.todoText"  size="30"
                placeholder="add new todo here">
         <input class="btn-primary" type="submit" value="add">
-      </form>
+      </form>-->
     </div>
   </body>
+  </table>
 </html>
