@@ -9,8 +9,7 @@
   </head>
   <body>
     <h2>Listado de Productos</h2>
-    <p>Buscar : <input type="text" ng-model="searchProduct">
-    <input type="button" value="Agregar Producto" onclick="window.location.href='add.html';"/></p>
+    <p>Buscar : <input type="text" ng-model="searchProduct"></p>
     <div ng-controller="StockController as stockCtrl">
       <table border="1">
         <tbody>
@@ -23,12 +22,27 @@
           </tr>
         </tbody>
       <tr ng-repeat="product in products | filter: searchProduct | orderBy:'price'">
-        <td>{{product.code }}</td>
+        <td>{{product.code}}</td>
         <td>{{product.description | uppercase}}</td>
         <td>{{product.price | currency}}</td>
         <td><img ng-src="img/{{product.picture}}" width="100px" height="100px"></td>
         <td>{{product.notes}}</td>
       </tr>      
+      <!--<span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+      [ <a href="" ng-click="todoList.archive()">archive</a> ]
+      <ul class="unstyled">
+        <li ng-repeat="todo in todoList.todos">
+          <label class="checkbox">
+            <input type="checkbox" ng-model="todo.done">
+            <span class="done-{{todo.done}}">{{todo.text}}</span>
+          </label>
+        </li>
+      </ul>
+      <form ng-submit="todoList.addTodo()">
+        <input type="text" ng-model="todoList.todoText"  size="30"
+               placeholder="add new todo here">
+        <input class="btn-primary" type="submit" value="add">
+      </form>-->
     </div>
   </body>
   </table>
