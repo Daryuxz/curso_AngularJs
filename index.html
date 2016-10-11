@@ -5,11 +5,12 @@
     <script src="vendor/angular/angular.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/controllers/stockController.js"></script>
+    <script src="filters/filter.js"></script>
     <link rel="stylesheet" href="styles/app.css">
   </head>
   <body>
     <h2>Listado de Productos</h2>
-    <p>Buscar : <input type="text" ng-model="searchProduct">
+    <p>Buscar: <input type="text" ng-model="searchProduct">
     <input type="button" value="Agregar Producto" onclick="window.location.href='add.html';"/></p>
     <div ng-controller="StockController as stockCtrl">
       <table border="1">
@@ -23,9 +24,9 @@
           </tr>
         </tbody>
       <tr ng-repeat="product in products | filter: searchProduct | orderBy:'price'">
-        <td>{{product.code }}</td>
+        <td>{{product.code | codeFormat}}</td>
         <td>{{product.description | uppercase}}</td>
-        <td>{{product.price | currency}}</td>
+        <td>{{product.price | currency:"USD"}}</td>
         <td><img ng-src="img/{{product.picture}}" width="100px" height="100px"></td>
         <td>{{product.notes}}</td>
       </tr>      
