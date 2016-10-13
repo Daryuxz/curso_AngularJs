@@ -1,6 +1,7 @@
 .done-true {
   text-decoration: line-through;
   color: grey;}
+<<<<<<< HEAD
 
   th {
 	  background-image: linear-gradient(to top, #FFEB3B, #E91E63);
@@ -21,3 +22,8 @@ img {
 .ng-binding {
 	text-align: center;
 }
+=======
+tr {
+background-color: #09A5FF;
+}
+>>>>>>> 0e4204e01658f43be4a5d9a5a500500d593a87db
