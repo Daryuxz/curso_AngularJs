@@ -1,3 +1,23 @@
 .done-true {
   text-decoration: line-through;
   color: grey;}
+
+  th {
+	  background-image: linear-gradient(to top, #FFEB3B, #E91E63);
+	  font-family: monospace;
+	  font-size: 17px;
+  }
+  tr {
+  	  background-image: linear-gradient(to top, #8BC34A, #FFEB3B);
+  }
+table {
+	width: 100%;
+}
+img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.ng-binding {
+	text-align: center;
+}

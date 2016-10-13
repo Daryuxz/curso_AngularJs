@@ -1,0 +1,33 @@
+<html> 
+<head> 
+<script type="text/javascript"> 
+<!-- 
+myString="" 
+
+function passdata(){ 
+myForm=document.f1 
+for(i=0;i<myForm.length-1;i++){ // run through form elements 
+myString+=add_delimiters(myForm.elements[i].name,myForm.elements[i].value) // get element name and value 
+
+location.href = 'pagina2.html' + '?' + escape(myString) 
+} 
+
+function add_delimiters(n,v){ 
+if(n!=""){ // add = and & characters to identify name and value pairs 
+return n+"="+v+"&" 
+} 
+} 
+} 
+// --> 
+</script> 
+</head> 
+<body> 
+<form name="f1"> 
+Text 1 <input type="text" name="text1" value="One" size="5"> 
+Text 2 <input type="text" name="text2" value="Two" size="5"> 
+Text 3 <input type="text" name="text3" value="Three" size="5"> 
+Text 4 <input type="text" name="text4" value="Four" size="5"> 
+<input type="button" value="Pass Values" onclick="passdata()"> 
+</form> 
+</body> 
+</html> 

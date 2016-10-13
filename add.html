@@ -1,17 +1,50 @@
-<!doctype html>
+<!DOCTYPE html>
 <html ng-app="stockApp">
-  <head>
-    <meta charset="UTF-8">
-    <script src="vendor/angular/angular.min.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/controllers/stockController.js"></script>
-    <link rel="stylesheet" href="styles/app.css">
-  </head>
-  <body>
-    <h2>Listado de Productos</h2>
-    <p>Buscar : <input type="text" ng-model="searchProduct"></p>
-    <div ng-controller="StockController as stockCtrl">
-      <table border="1">
+<head>
+<meta charset="UTF-8">
+ <script src="vendor/angular/angular.min.js"></script>
+ <script src="js/app.js"></script>
+ <script src="js/controllers/pagina3.js"></script>
+ <script src="filters/filter.js"></script>
+ <link rel="stylesheet" href="styles/app.css">
+	<title>Prueba Angular</title>
+</head>
+<body ng-controller="pagina3Controller">
+<section>
+	
+	<h2>Agregar Producto</h2>
+	
+      <form name = "productForm" novalidate>
+		 <p>
+                Código:<br>
+                <input type="text" ng-model="nuevoComentario.code" name="code" pattern="[A-Za-z]{2}[0-9]{4}">
+                <span style="color:red;" ng-show="productForm.code.$dirty && productForm.code.$invalid">* Código no válido (formato: XX####)</span>
+            </p>
+            <p>
+                Descripción:<br>
+                <input type="text" ng-model="nuevoComentario.description" name="description">
+                <span style="color:red;" ng-show="productForm.description.$dirty && productForm.description.$invalid">Descripción inválida</span>
+            </p>
+            <p>
+                Precio:<br>
+                <input type="text" ng-model="nuevoComentario.price" name="price">
+                <span style="color:red;" ng-show="productForm.price.$dirty && productForm.price.$invalid">Precio inválido</span>
+            </p>
+            <p>
+                Imagen:<br>
+                <input type="file" name="picture" size="20">
+            </p>
+            <p>
+                Notas:<br>
+                <textarea cols="40" rows="4" ng-model="nuevoComentario.notes" name="notes"></textarea>
+            </p>
+            <button ng-click="agregarProducto()">Guardar</button>
+			
+	</form>
+    <p>
+        
+    </p>
+	<table border="1">
         <tbody>
           <tr>
             <th>Codigo</th>
@@ -20,30 +53,16 @@
             <th>Imagen</th>
             <th>Notas</th>
           </tr>
+          <tr ng-repeat="comentario in comentarios">
+			<td>{{comentario.code | codeFormat | uppercase}}</td>
+			<td>{{comentario.description | uppercase}}</td>
+			<td>{{comentario.price | currency:"USD"}}</td>
+			<td><img ng-src="img/{{comentario.picture}}" width="100px" height="100px"></td>
+			<td>{{comentario.notes}}</td>
+		</tr>
         </tbody>
-      <tr ng-repeat="product in products | filter: searchProduct | orderBy:'price'">
-        <td>{{product.code}}</td>
-        <td>{{product.description | uppercase}}</td>
-        <td>{{product.price | currency}}</td>
-        <td><img ng-src="img/{{product.picture}}" width="100px" height="100px"></td>
-        <td>{{product.notes}}</td>
-      </tr>      
-      <!--<span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
-      [ <a href="" ng-click="todoList.archive()">archive</a> ]
-      <ul class="unstyled">
-        <li ng-repeat="todo in todoList.todos">
-          <label class="checkbox">
-            <input type="checkbox" ng-model="todo.done">
-            <span class="done-{{todo.done}}">{{todo.text}}</span>
-          </label>
-        </li>
-      </ul>
-      <form ng-submit="todoList.addTodo()">
-        <input type="text" ng-model="todoList.todoText"  size="30"
-               placeholder="add new todo here">
-        <input class="btn-primary" type="submit" value="add">
-      </form>-->
-    </div>
-  </body>
-  </table>
+      </table>
+</section>
+</body>
+
 </html>
