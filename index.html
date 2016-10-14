@@ -9,34 +9,13 @@
       <script src="js/directives/directives.js"></script>
       <link rel="stylesheet" href="styles/app.css">
   </head>
-  <div>
-    
-  </div>
   <body>
     <h2>Listado de Productos</h2>
     <p><input type="text" ng-model="searchProduct" placeholder="Buscar">
-    <p>Buscar: <input type="text" ng-model="searchProduct">
     <input type="button" value="Agregar Producto" onclick="window.location.href='add.html';"/></p>
     <buttons-directive></buttons-directive>
     <div ng-controller="StockController as stockCtrl">
-      <table border="1">
-        <tbody>
-          <tr>
-            <th>Codigo</th>
-            <th>Descripcion</th>
-            <th>Precio</th>
-            <th>Imagen</th>
-            <th>Notas</th>
-          </tr>
-        </tbody>
-      <tr ng-repeat="product in products | filter: searchProduct | orderBy:'price'">
-        <td>{{product.code | codeFormat}}</td>
-        <td>{{product.description | uppercase}}</td>
-        <td>{{product.price | currency:"USD"}}</td>
-        <td><img ng-src="img/{{product.picture}}" width="100px" height="100px"></td>
-        <td>{{product.notes}}</td>
-      </tr>      
+    <products-directive></products-directive>      
     </div>
   </body>
-  </table>
 </html>

@@ -5,3 +5,9 @@ app.directive("buttonsDirective", function(){
         
     };
 });
+
+app.directive("productsDirective", function(){
+    return{
+        templateUrl : 'partials/productsTable.html'     
+    };
+});

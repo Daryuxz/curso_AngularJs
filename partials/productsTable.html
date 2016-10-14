@@ -1,0 +1,18 @@
+      <table border="1">
+        <tbody>
+          <tr>
+            <th>Codigo</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Imagen</th>
+            <th>Notas</th>
+          </tr>
+        </tbody>
+      <tr ng-repeat="product in products | filter: searchProduct | orderBy:'price'">
+        <td>{{product.code | codeFormat}}</td>
+        <td>{{product.description | uppercase}}</td>
+        <td>{{product.price | currency:"USD"}}</td>
+        <td><img ng-src="img/{{product.picture}}" width="100px" height="100px"></td>
+        <td>{{product.notes}}</td>
+      </tr>
+      </table> 
